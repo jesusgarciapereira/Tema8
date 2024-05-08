@@ -20,14 +20,27 @@ public class Hora {
 	 * 
 	 * @param hora   Numero de las horas
 	 * @param minuto Numero de los minutos
+	 * @throws NegativeHourException   Excepcion que indica que las horas es un
+	 *                                 numero negativo
+	 * @throws NegativeMinuteException Excepcion que indica que los minutos es un
+	 *                                 numero negativo
 	 */
-	public Hora(int hora, int minuto) {
+	public Hora(int hora, int minuto) throws NegativeHourException, NegativeMinuteException {
 		// Para las horas, sólo admitirá números del 0 al 23
 		if (hora >= 0 && hora <= 23)
 			this.hora = hora;
+		// Pero si es negativo
+		else if (hora < 0)
+			// Lanzará esta excepción
+			throw new NegativeHourException();
+
 		// Para los minutos, sólo admitirá números del 0 al 59
 		if (minuto >= 0 && minuto <= 59)
 			this.minuto = minuto;
+		// Pero si es negativo
+		else if (minuto < 0)
+			// Lanzará esta excepción
+			throw new NegativeMinuteException();
 	}
 
 	/**
@@ -43,7 +56,7 @@ public class Hora {
 			this.minuto = 0;
 			// Y la hora se incrementa
 			this.hora++;
-			
+
 			// Y si, ahora, la hora es 24
 			if (this.hora == 24) {
 				// Ésta también pasa a ser 0
@@ -59,8 +72,10 @@ public class Hora {
 	 * 
 	 * @param valor Nuevo valor a asignar a los minutos
 	 * @return True o false segun si se ha podido llevar a cabo la modificacion
+	 * @throws NegativeMinuteException Excepcion que indica que los minutos es un
+	 *                                 numero negativo
 	 */
-	public boolean setMinutos(int valor) {
+	public boolean setMinutos(int valor) throws NegativeMinuteException {
 
 		// Variable que indica si se ha hecho la operación, inicializada como false
 		boolean hecho = false;
@@ -72,6 +87,10 @@ public class Hora {
 			// Y hecho será true
 			hecho = true;
 		}
+		// Pero si el valor es negativo
+		else if (valor < 0)
+			// Lanzará esta excepción
+			throw new NegativeMinuteException();
 
 		// Devuelve el valor de hecho
 		return hecho;
@@ -84,8 +103,10 @@ public class Hora {
 	 * 
 	 * @param valor Nuevo valor a asignar a las horas
 	 * @return True o false segun si se ha podido llevar a cabo la modificacion
+	 * @throws NegativeHourException Excepcion que indica que las horas es un numero
+	 *                               negativo
 	 */
-	public boolean setHora(int valor) {
+	public boolean setHora(int valor) throws NegativeHourException {
 
 		// Variable que indica si se ha hecho la operación, inicializada como false
 		boolean hecho = false;
@@ -97,7 +118,11 @@ public class Hora {
 			// Y hecho será true
 			hecho = true;
 		}
-
+		// Pero si el valor es negativo
+		else if (valor < 0)
+			// Lanzará esta excepción
+			throw new NegativeHourException();
+		
 		// Devuelve el valor de hecho
 		return hecho;
 

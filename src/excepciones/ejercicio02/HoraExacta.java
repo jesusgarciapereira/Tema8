@@ -17,13 +17,26 @@ public class HoraExacta extends Hora {
 	 * @param hora    Numero de las horas
 	 * @param minuto  Numero de los minutos
 	 * @param segundo Numero de los segundos
+	 * @throws NegativeSecondException Excepcion que indica que los segundos es un
+	 *                                 numero negativo
+	 * @throws NegativeHourException   Excepcion que indica que las horas es un
+	 *                                 numero negativo
+	 * @throws NegativeMinuteException Excepcion que indica que los minutos es un
+	 *                                 numero negativo
 	 */
-	public HoraExacta(int hora, int minuto, int segundo) {
+	public HoraExacta(int hora, int minuto, int segundo)
+			throws NegativeSecondException, NegativeHourException, NegativeMinuteException {
 		// Llama al constructor de la superclase con las horas y los minutos
 		super(hora, minuto);
 		// Para los segundos, sólo admitirá números del 0 al 59
 		if (segundo >= 0 && segundo <= 59)
 			this.segundo = segundo;
+		// Pero si es negativo
+		else if (segundo < 0) {
+			// Lanzará esta excepción
+			throw new NegativeSecondException();
+
+		}
 	}
 
 	/**
@@ -32,8 +45,10 @@ public class HoraExacta extends Hora {
 	 * 
 	 * @param valor Nuevo valor a asignar a los segundos
 	 * @return True o false segun si se ha podido llevar a cabo la modificacion
+	 * @throws NegativeSecondException Excepcion que indica que los segundos es un
+	 *                                 numero negativo
 	 */
-	public boolean setSegundo(int valor) {
+	public boolean setSegundo(int valor) throws NegativeSecondException {
 
 		// Variable que indica si se ha hecho la operación, inicializada como false
 		boolean hecho = false;
@@ -44,6 +59,11 @@ public class HoraExacta extends Hora {
 			this.segundo = valor;
 			// Y hecho será true
 			hecho = true;
+		}
+		// Pero el valor si es negativo
+		else if (valor < 0) {
+			// Lanzará esta excepción
+			throw new NegativeSecondException();
 		}
 
 		// Devuelve el valor de hecho
