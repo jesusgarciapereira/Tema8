@@ -69,11 +69,11 @@ public class Banco {
 					// Mostrará un mensaje según si operacion es true o false
 					System.out.println(operacion ? "Cuenta abierta correctamente" : "No se ha podido abrir la cuenta");
 				} catch (InvalidDniException e) {
-					System.out.println(e.toString());
+					e.toString();
 				} catch (InvalidNameException e) {
-					System.out.println(e.toString());
+					e.toString();
 				} catch (NegativeSaldoException e) {
-					System.out.println(e.toString());
+					e.toString();
 				}
 				break;
 
@@ -100,7 +100,7 @@ public class Banco {
 					// Mostrará un mensaje según si operacion es true o false
 					System.out.println(operacion ? "Cuenta eliminada" : "No se ha podido eliminar la cuenta");
 				} catch (InvalidDniException e) {
-					System.out.println(e.toString());
+					e.toString();
 				}
 				break;
 
@@ -127,9 +127,9 @@ public class Banco {
 					System.out.println(
 							operacion ? "Nombre modificado correctamente" : "No se ha podido modificar el nombre");
 				} catch (InvalidDniException e) {
-					System.out.println(e.toString());
+					e.toString();
 				} catch (InvalidNameException e) {
-					System.out.println(e.toString());
+					e.toString();
 				}
 				break;
 
@@ -157,9 +157,9 @@ public class Banco {
 					// Mostrará un mensaje según si operacion es true o false
 					System.out.println(operacion ? "Transferencia hecha" : "No se ha podido realizar la transferencia");
 				} catch (InvalidDniException e) {
-					System.out.println(e.toString());
+					e.toString();
 				} catch (NegativeSaldoException e) {
-					System.out.println(e.toString());
+					e.toString();
 				}
 				break;
 			case 6:
@@ -185,9 +185,9 @@ public class Banco {
 					// Mostrará un mensaje según si operacion es true o false
 					System.out.println(operacion ? "Transferencia hecha" : "No se ha podido realizar la transferencia");
 				} catch (InvalidDniException e) {
-					System.out.println(e.toString());
+					e.toString();
 				} catch (NegativeSaldoException e) {
-					System.out.println(e.toString());
+					e.toString();
 				}
 				break;
 			case 0:
