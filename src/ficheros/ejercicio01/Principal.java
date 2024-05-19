@@ -23,7 +23,7 @@ public class Principal {
 		int media;
 
 		try {
-			// Abre el archivo indicado para su lectura
+			// Abrimos el archivo indicado para su lectura
 			br = new BufferedReader(new FileReader("src\\ficheros\\ejercicio01\\NumerosReales.txt"));
 
 			// Asignamos a línea leída la primera línea del archivo
