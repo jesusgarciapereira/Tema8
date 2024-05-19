@@ -3,6 +3,7 @@ package ficheros.ejercicio02;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class Principal {
@@ -13,7 +14,7 @@ public class Principal {
 		Scanner sc;
 
 		// Lista de enteros con todos los números leídos del fichero
-		ArrayList<Integer> numeros = new ArrayList<>();
+		List<Integer> numeros = new ArrayList<>();
 		// Suma de todos los números
 		int suma = 0;
 		// Media de todos los números
