@@ -43,14 +43,20 @@ public class Principal {
 		media = suma / numeros.size();
 
 		// Mostramos todos los datos
+		System.out.println("Números leídos del fichero");
 		for (Integer numero : numeros) {
 			System.out.print(numero + " ");
 		}
 		System.out.println();
+		System.out.println();
 
+		System.out.println("Suma total");
 		System.out.println(suma);
+		System.out.println();
 
+		System.out.println("Media");
 		System.out.println(media);
+		System.out.println();
 
 	}
 
