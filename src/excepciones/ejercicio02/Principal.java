@@ -16,13 +16,13 @@ public class Principal {
 			((HoraExacta) h2).setSegundo(-34);
 			
 		} catch (NegativeHourException e) {
-			System.out.println(e.toString());
+			System.out.println(e);
 
 		} catch (NegativeMinuteException e) {
-			System.out.println(e.toString());
+			System.out.println(e);
 
 		} catch (NegativeSecondException e) {
-			System.out.println(e.toString());
+			System.out.println(e);
 		}
 		
 	}

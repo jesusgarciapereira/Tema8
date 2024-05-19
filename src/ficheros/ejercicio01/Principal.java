@@ -9,52 +9,66 @@ import java.util.Arrays;
 public class Principal {
 
 	public static void main(String[] args) {
-		
-		// Objeto de tipo BufferedReader, inicializado en null 
-		// (para que no me lance la excepción aquí)
-		BufferedReader br = null;
-		
-		String linea = "";
+
+		// Variable de tipo BufferedReader para leer el archivo
+		BufferedReader br;
+
+		// Cada línea leída
+		String lineaLeida = "";
+		// Tabla con los números leídos del archivo
+		String numeros[] = null;
+		// Suma de todos los números
 		int suma = 0;
-		int media= 0;
-		String datosObtenidos[];
-		
+		// Media de todos los números
+		int media;
+
 		try {
-			// Asignamos a lectura, la lectura de nuestro fichero
+			// Abre el archivo indicado para su lectura
 			br = new BufferedReader(new FileReader("src\\ficheros\\ejercicio01\\NumerosReales.txt"));
-			
-			linea = br.readLine();
-			// Asignamos cada línea leída a nuestro String
-			while(linea  != null) {
-				// Dividimos la línea leída en un arreglo de strings separados por espacio en blanco
-				datosObtenidos = linea.split(" ");
-				
-				// Imprimimos los datos obtenidos
-				System.out.println(Arrays.toString(datosObtenidos));
-				
-				// Iteramos sobre cada número obtenido en la línea
-				for (String numero : datosObtenidos) {
-					// Sumamos el número convertido a entero a la suma total (parseInt o valueOf)
-					suma += Integer.parseInt(numero);
+
+			// Asignamos a línea leída la primera línea del archivo
+			lineaLeida = br.readLine();
+
+			// Mientras la línea leída no sea null
+			while (lineaLeida != null) {
+
+				// Asignamos a la tabla los números de la línea separados por un espacio
+				numeros = lineaLeida.split(" ");
+
+				// Bucle for-each que recorre cada elemento de la tabla números
+				for (String numero : numeros) {
+					// Le asignamos a la variable suma la suma de todos los números de la tabla, su
+					// respectivo valor en int
+					suma += Integer.valueOf(numero);
 				}
-				
-				// Calculamos la media dividiendo la suma por la cantidad de números obtenidos        
-				media = suma / datosObtenidos.length;	
-				
-				linea = br.readLine();
+
+				// Asignamos a línea leída la siguiente línea del archivo
+				lineaLeida = br.readLine();
 			}
-			// Si el archivo no se encuentra, imprime la traza del error
+
+			// Excepción en caso de no encontrar el archivo
 		} catch (FileNotFoundException e) {
-			e.printStackTrace();
-			// Si hay un error de entrada/salida, imprime la traza del error
+			System.out.println(e);
+			// Excepción de entrada/salida
 		} catch (IOException e) {
-			e.printStackTrace();
+			System.out.println(e);
 		}
-		
-		// Imprimimos la suma total de los números leídos
+
+		// Asignamos a la media la suma total partido la longitud de la tabla números
+		media = suma / numeros.length;
+
+		// Mostramos todos los resultados
+		System.out.println("Números leídos del fichero");
+		System.out.println(Arrays.toString(numeros));
+		System.out.println();
+
+		System.out.println("Suma total");
 		System.out.println(suma);
-		// Imprimimos la media de los números leídos
+		System.out.println();
+
+		System.out.println("Media");
 		System.out.println(media);
+		System.out.println();
 
 	}
 
