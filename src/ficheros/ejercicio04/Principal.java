@@ -27,7 +27,7 @@ public class Principal {
 			// Mientras la cadena de texto no sea "fin"
 			while (!lineaTexto.equalsIgnoreCase("fin")) {
 				// Le pedimos al usuario un texto
-				System.out.println("Introduzca texto");
+				System.out.println("Introduzca texto (se seguirá pidiendo hasta que escriba \"fin\")");
 				// Y lo asignamos
 				lineaTexto = sc.nextLine();
 				// Para luego introducirlo en nuestro archivo
@@ -43,7 +43,6 @@ public class Principal {
 			
 			// Mensaje de programa finalizado
 			System.out.println("Programa finalizado");
-			
 			
 			// Excepción de entrada/salida
 		} catch (IOException e) {
